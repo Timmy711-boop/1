@@ -5,182 +5,160 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio | Thanawat Srichan</title>
     <style>
-        /* นำเข้าฟอนต์ Nunito ที่มีความโค้งมนสนุกสนาน และ Kanit สำหรับภาษาไทยที่อ่านง่าย */
-        @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@400;500;700&family=Nunito:wght@500;700;900&display=swap');
-
+        /* สีโทนครึ้ม (Dark Mode) */
         :root {
-            --bg-color: #f8fafc;       /* สีพื้นหลังสว่าง สะอาดตา */
-            --card-bg: #ffffff;        /* สีพื้นหลังการ์ด */
-            --text-main: #0f172a;      /* สีตัวอักษรหลัก (ดำอมน้ำเงินเข้ม) */
-            --text-muted: #64748b;     /* สีตัวอักษรรองอ่านสบาย */
-            --color-1: #6366f1;        /* Indigo - ให้ความเท่แบบนักพัฒนา */
-            --color-2: #f43f5e;        /* Rose - ให้ความสนุกสนาน มีพลัง */
-            --color-3: #10b981;        /* Emerald - สบายตา ชัดเจน */
+            --bg-color: #121212; /* พื้นหลังครึ้ม */
+            --card-bg-color: #1e1e1e; /* พื้นหลังการ์ดครึ้ม */
+            --text-color-main: #e0e0e0; /* ข้อความหลัก */
+            --text-color-sub: #a0a0a0; /* ข้อความรอง */
+            --header-gradient: linear-gradient(135deg, #a855f7 0%, #ec4899 100%); /* ไล่ระดับม่วง-ชมพู */
+            --accent-color: #38bdf8; /* สีเน้น (ฟ้า) */
         }
 
         body {
-            font-family: 'Nunito', 'Kanit', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: var(--bg-color);
-            color: var(--text-main);
+            color: var(--text-color-main);
             margin: 0;
-            line-height: 1.7;
-        }
-
-        /* ส่วนหัวเว็บ (Header) ไล่สีสันสดใส */
-        header {
-            background: linear-gradient(135deg, var(--color-1) 0%, var(--color-2) 100%);
-            color: white;
-            padding: 5rem 2rem;
-            text-align: center;
-            border-bottom-left-radius: 40px;
-            border-bottom-right-radius: 40px;
-            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
-            margin-bottom: 3rem;
-        }
-
-        h1 {
-            font-size: 3.5rem;
-            font-weight: 900;
-            margin: 0;
-            letter-spacing: -1px;
-        }
-
-        header p {
-            font-size: 1.3rem;
-            font-weight: 500;
-            margin-top: 1rem;
-            opacity: 0.95;
+            padding: 0;
         }
 
         .container {
-            max-width: 900px;
+            max-width: 1000px;
             margin: auto;
-            padding: 0 1.5rem 4rem;
+            padding: 20px;
         }
 
-        /* หัวข้อต่างๆ */
-        h2 {
-            font-size: 2.2rem;
-            color: var(--text-main);
-            margin-bottom: 1.5rem;
-            position: relative;
-            display: inline-block;
-        }
-
-        h2::after {
-            content: "";
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 60%;
-            height: 6px;
-            background: var(--color-3);
-            border-radius: 10px;
-        }
-
-        /* การ์ดแสดงผลงาน */
-        .card {
-            background: var(--card-bg);
-            padding: 2.5rem;
-            margin-bottom: 2rem;
+        /* ส่วนหัว (Header) ครึ้ม */
+        header {
+            background: var(--header-gradient);
+            color: white;
+            padding: 60px 40px;
             border-radius: 24px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.04);
-            border: 2px solid transparent;
-            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-        }
-
-        .card:hover {
-            transform: translateY(-8px) scale(1.01);
-            border-color: var(--color-1);
-            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.15);
-        }
-
-        .card h3 {
-            font-size: 1.6rem;
-            margin-top: 0;
-            color: var(--color-1);
-            font-weight: 700;
-        }
-
-        .card p {
-            color: var(--text-muted);
-            font-size: 1.05rem;
-        }
-
-        /* ป้าย Tag ทักษะต่างๆ */
-        .tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.8rem;
-            margin-top: 1.5rem;
-        }
-
-        .tag {
-            background: #f1f5f9;
-            color: var(--color-1);
-            padding: 0.5rem 1.2rem;
-            border-radius: 999px;
-            font-size: 0.9rem;
-            font-weight: 700;
-            transition: background 0.2s, color 0.2s;
-            cursor: default;
-        }
-
-        .tag:hover {
-            background: var(--color-1);
-            color: white;
-        }
-
-        /* ส่วนติดต่อสอบถามด้านล่างสุด */
-        #contact {
             text-align: center;
-            background: var(--color-1);
-            color: white;
-            border-radius: 30px;
-            padding: 4rem 2rem;
-            margin-top: 4rem;
-            background-image: radial-gradient(circle at top right, var(--color-2), transparent 60%);
-            box-shadow: 0 15px 35px rgba(244, 63, 94, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            margin-bottom: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
         }
 
-        #contact h2 {
-            color: white;
+        /* เพิ่มที่วางรูปภาพโปรไฟล์ */
+        .profile-picture-container {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-color: #333; /* ตัวยึด */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 5px solid white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
         }
 
-        #contact h2::after {
-            background: white;
+        .profile-picture {
             width: 100%;
-            left: 0;
+            height: 100%;
+            object-fit: cover;
         }
 
-        .contact-info p {
-            font-size: 1.2rem;
-            margin: 0.5rem 0;
+        header h1 {
+            margin: 0;
+            font-size: 3em;
         }
 
-        .contact-info a {
-            color: white;
-            text-decoration: none;
-            font-weight: 700;
-            border-bottom: 2px dashed white;
-            padding-bottom: 2px;
-            transition: opacity 0.2s;
+        header p {
+            margin: 5px 0 0;
+            font-size: 1.2em;
+            color: rgba(255, 255, 255, 0.8);
         }
 
-        .contact-info a:hover {
-            opacity: 0.8;
+        /* ส่วนเนื้อหา */
+        section {
+            margin-bottom: 40px;
+        }
+
+        section h2 {
+            color: var(--accent-color);
+            border-bottom: 3px solid var(--accent-color);
+            display: inline-block;
+            padding-bottom: 5px;
+            margin-bottom: 20px;
+        }
+
+        /* การ์ดโปรเจกต์ (Project Card) แบบครึ้มและมีรูปภาพ */
+        .project-card {
+            background-color: var(--card-bg-color);
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        /* เพิ่มที่วางรูปภาพโปรเจกต์ */
+        .project-image-container {
+            flex: 0 0 200px;
+            height: 150px;
+            background-color: #333; /* ตัวยึด */
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .project-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .project-content {
+            flex: 1;
+        }
+
+        .project-card h3 {
+            margin-top: 0;
+            color: var(--accent-color);
+        }
+
+        .project-card p {
+            color: var(--text-color-sub);
+            margin-bottom: 15px;
+        }
+
+        .tags {
+            color: var(--accent-color);
+            font-style: italic;
+            font-size: 0.9em;
+        }
+
+        .tags span {
+            margin-right: 10px;
         }
     </style>
 </head>
 <body>
-
-    <header>
-        <h1>Thanawat Srichan (Arm)</h1>
-        <p>Software & Hardware Developer 🚀 | Robotics Enthusiast 🤖</p>
-    </header>
-
     <div class="container">
-        
+        <!-- ส่วนหัวใหม่ที่ครึ้มและมีรูปภาพ -->
+        <header>
+            <div class="profile-picture-container">
+                <!-- ลิงก์รูปภาพโปรไฟล์จริง -->
+                <img src="path/to/profile.jpg" alt="Thanawat Srichan Profile" class="profile-picture">
+            </div>
+            <div class="header-text">
+                <h1>Thanawat Srichan (Arm)</h1>
+                <p>Software & Hardware Developer 🚀 | Robotics Enthusiast 🤖</p>
+            </div>
+        </header>
+
         <section id="about">
             <h2>About Me</h2>
             <p>สวัสดีครับ! ผมเป็นนักศึกษาที่มีความหลงใหลในการสร้างสรรค์นวัตกรรม ทั้งในด้านการพัฒนา Software และ Hardware ชอบแก้ปัญหาและเรียนรู้เทคโนโลยีใหม่ๆ อยู่เสมอ มีความเชี่ยวชาญในการเขียนโปรแกรมด้วย Python, การพัฒนาแอปพลิเคชันด้วย Flutter และการสร้างโปรเจกต์หุ่นยนต์</p>
@@ -188,44 +166,25 @@
 
         <section id="projects">
             <h2>Featured Projects</h2>
-            
-            <!-- โปรเจกต์ที่ 1 -->
-            <div class="card">
-                <h3>Smart Recycling Bin ♻️</h3>
-                <p>โปรเจกต์ถังขยะอัจฉริยะที่สามารถคัดแยกประเภทขยะได้อัตโนมัติ โดยนำเทคโนโลยี Image Recognition มาประยุกต์ใช้ในการตรวจจับขวดน้ำและวัสดุอื่นๆ ควบคุมการทำงานผ่านบอร์ด Micro:bit และกล้อง HuskyLens</p>
-                <div class="tags">
-                    <span class="tag">#Robotics</span>
-                    <span class="tag">#Hardware</span>
-                    <span class="tag">#AI</span>
-                    <span class="tag">#Micro:bit</span>
+
+            <!-- การ์ดโปรเจกต์แรก (Smart Recycling Bin) ครึ้มและมีรูปภาพ -->
+            <div class="project-card">
+                <div class="project-image-container">
+                    <!-- ลิงก์รูปภาพโปรเจกต์จริง -->
+                    <img src="path/to/smart-bin.jpg" alt="Smart Recycling Bin Project" class="project-image">
+                </div>
+                <div class="project-content">
+                    <h3>Smart Recycling Bin ♻️</h3>
+                    <p>โปรเจกต์ถังขยะอัจฉริยะที่สามารถคัดแยกประเภทขยะได้อัตโนมัติ โดยนำเทคโนโลยี Image Recognition มาประยุกต์ใช้ในการตรวจจับขวดน้ำและวัสดุอื่นๆ ควบคุมการทำงานผ่านบอร์ด Micro:bit และกล้อง HuskyLens</p>
+                    <div class="tags">
+                        <span>#Robotics</span>
+                        <span>#Hardware</span>
+                        <span>#AI</span>
+                        <span>#Micro:bit</span>
+                    </div>
                 </div>
             </div>
- 
-            <!-- โปรเจกต์ที่ 2 -->
-            <div class="card">
-                <h3>Student Management App 📱</h3>
-                <p>แอปพลิเคชันสำหรับการจัดการข้อมูลนักเรียน ออกแบบและพัฒนาด้วยระบบ Cross-platform มีระบบล็อกอินที่ปลอดภัย พร้อมฟีเจอร์การแสดงผลวิดีโอเพื่อการศึกษาในรูปแบบที่ทันสมัยสไตล์หน้าฟีดสั้น</p>
-                <div class="tags">
-                    <span class="tag">#Flutter</span>
-                    <span class="tag">#MobileApp</span>
-                    <span class="tag">#Dart</span>
-                    <span class="tag">#SoftwareDev</span>
-                </div>
-            </div>
-
         </section>
-
-        <section id="contact">
-            <h2>Let's Connect!</h2>
-            <p>สนใจพูดคุยเรื่องโปรเจกต์ เทคโนโลยี หรือแลกเปลี่ยนไอเดียใหม่ๆ ติดต่อผมได้เลยครับ</p>
-            <div class="contact-info">
-                <!-- อย่าลืมเปลี่ยนชื่อ GitHub ของคุณตรงช่อง href ด้านล่างนะครับ -->
-                <p>💻 GitHub: <a href="https://github.com/Timmy711-boop" target="_blank">github.com/Timmy711-boop</a></p>
-                <p>📧 Email: <a href="mailto:tanawatpoo363@gmail.com">tanawatpoo363@gmail.com</a></p>
-            </div>
-        </section>
-
     </div>
-
 </body>
 </html>
